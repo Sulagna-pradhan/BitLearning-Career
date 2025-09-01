@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work With Us - BitLearning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+      
+      * {
+        font-family: 'Inter', sans-serif;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .glass-dark {
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .floating-delayed {
+        animation: float 6s ease-in-out infinite 2s;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .gradient-border {
+        background: linear-gradient(135deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradientShift 8s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+      .hover-lift {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .hover-lift:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .input-glow:focus {
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1), 0 0 20px rgba(99, 102, 241, 0.2);
+      }
+
+      .pulse-ring {
+        animation: pulseRing 2s cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite;
+      }
+
+      @keyframes pulseRing {
+        0% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        80%, 100% {
+          transform: scale(1.2);
+          opacity: 0;
+        }
+      }
+
+      .bg-pattern {
+        background-image: 
+          radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.1) 0%, transparent 50%),
+          radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.1) 0%, transparent 50%);
+      }
+
+      .hero-bg {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 75%, #f5576c 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      .form-glass {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(30px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .skill-tag {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(147, 51, 234, 0.1));
+        border: 1px solid rgba(99, 102, 241, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      @media (max-width: 768px) {
+        .floating, .floating-delayed {
+          animation: none;
+        }
+      }
+
+      .submit-btn {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        background-size: 200% 200%;
+        animation: gradientShift 3s ease infinite;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .submit-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        transition: left 0.6s;
+      }
+
+      .submit-btn:hover::before {
+        left: 100%;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-gray-900 bg-gray-900 min-h-screen">
+    <!-- Floating Background Elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-20 left-10 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating"></div>
+      <div class="absolute top-40 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating-delayed"></div>
+      <div class="absolute -bottom-20 left-20 w-72 h-72 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 floating"></div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative w-full hero-bg text-white min-h-screen flex items-center">
+      <div class="absolute inset-0 bg-pattern"></div>
+      
+      <div class="relative max-w-7xl mx-auto px-6 py-20 flex flex-col items-center text-center">
+        <!-- Animated Logo/Icon -->
+        <div class="mb-8 relative">
+          <div class="w-24 h-24 mx-auto rounded-2xl glass flex items-center justify-center mb-6 hover-lift">
+            <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2L2 7v10c0 5.55 3.84 9.739 9 11 5.16-1.261 9-5.45 9-11V7l-10-5z"/>
+            </svg>
+          </div>
+          <div class="absolute inset-0 w-24 h-24 mx-auto rounded-2xl border-2 border-white opacity-30 pulse-ring"></div>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-black mb-8 leading-tight">
+         Let’s Create Together at 
+          <span class="relative inline-block">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 via-pink-300 to-yellow-300 bg-size-200 animate-pulse">BitLearning</span>
+          </span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl max-w-3xl mb-12 text-white/90 leading-relaxed font-light">
+          Join an <span class="font-semibold text-yellow-300">innovative journey</span> to reshape education. 
+          Be part of our mission to make a <span class="font-semibold text-pink-300">global impact</span> through technology.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-6">
+          <a href="#work-form" class="group px-8 py-4 bg-white/10 backdrop-blur-md text-white font-semibold rounded-2xl border border-white/20 hover-lift transition-all duration-300 hover:bg-white/20 hover:scale-105">
+            <span class="flex items-center gap-2">
+              Apply Now
+              <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+              </svg>
+            </span>
+          </a>
+          
+          <a href="https://bitlearning.com" class="px-8 py-4 bg-gradient-to-r from-yellow-400 to-pink-400 text-gray-900 font-semibold rounded-2xl shadow-2xl hover-lift transition-all duration-300 hover:scale-105">
+            Explore Main Site
+          </a>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-4xl">
+          <div class="glass rounded-3xl p-8 text-center hover-lift">
+            <div class="text-3xl font-bold text-yellow-300 mb-2">50K+</div>
+            <div class="text-white/80">Active Learners</div>
+          </div>
+          <div class="glass rounded-3xl p-8 text-center hover-lift">
+            <div class="text-3xl font-bold text-pink-300 mb-2">100+</div>
+            <div class="text-white/80">Countries Reached</div>
+          </div>
+          <div class="glass rounded-3xl p-8 text-center hover-lift">
+            <div class="text-3xl font-bold text-purple-300 mb-2">24/7</div>
+            <div class="text-white/80">Support Available</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="work-form" class="relative w-full bg-gray-900 py-24">
+      <div class="absolute inset-0 bg-pattern"></div>
+      
+      <div class="relative max-w-5xl mx-auto px-6">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-4xl md:text-6xl font-black text-white mb-6">
+            Join Our <span class="gradient-text">Team</span>
+          </h2>
+          <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+            Ready to make an impact? Fill out the form below and let's build the future of education together.
+          </p>
+        </div>
+
+        <form name="workwithus" method="POST" data-netlify="true" class="form-glass p-10 md:p-12 rounded-3xl shadow-2xl space-y-8 hover-lift" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="form-name" value="workwithus" />
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Full Name -->
+            <div class="space-y-3">
+              <label class="block text-sm font-semibold text-gray-200 mb-3">Full Name</label>
+              <input type="text" name="name" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow" placeholder="Enter your full name" />
+            </div>
+
+            <!-- Email -->
+            <div class="space-y-3">
+              <label class="block text-sm font-semibold text-gray-200 mb-3">Email Address</label>
+              <input type="email" name="email" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow" placeholder="your.email@example.com" />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Phone -->
+            <div class="space-y-3">
+              <label class="block text-sm font-semibold text-gray-200 mb-3">Phone Number</label>
+              <input type="tel" name="phone" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow" placeholder="+1 (555) 123-4567" />
+            </div>
+
+            <!-- Work As Dropdown -->
+            <div class="space-y-3">
+              <label class="block text-sm font-semibold text-gray-200 mb-3">You want to work as</label>
+              <select name="role" required class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow appearance-none cursor-pointer">
+                <option value="" class="bg-gray-800">-- Select your role --</option>
+                <option value="UI/UX Designer" class="bg-gray-800">UI/UX Designer</option>
+                <option value="Frontend Developer" class="bg-gray-800">Frontend Developer</option>
+                <option value="Backend Developer" class="bg-gray-800">Backend Developer</option>
+                <option value="Content/Data Management" class="bg-gray-800">Content/Data Management</option>
+                <option value="Tester" class="bg-gray-800">Tester</option>
+                <option value="Others" class="bg-gray-800">Others</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Your Skills -->
+          <div class="space-y-3">
+            <label class="block text-sm font-semibold text-gray-200 mb-3">Your Skills</label>
+            <div class="mb-4 flex flex-wrap gap-2">
+              <span class="skill-tag px-3 py-1 rounded-full text-xs text-purple-300">React</span>
+              <span class="skill-tag px-3 py-1 rounded-full text-xs text-blue-300">JavaScript</span>
+              <span class="skill-tag px-3 py-1 rounded-full text-xs text-green-300">Node.js</span>
+              <span class="skill-tag px-3 py-1 rounded-full text-xs text-pink-300">UI/UX</span>
+              <span class="skill-tag px-3 py-1 rounded-full text-xs text-yellow-300">+ More</span>
+            </div>
+            <textarea name="skills" rows="4" class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow resize-none" placeholder="List your key skills, technologies, and expertise areas..."></textarea>
+          </div>
+
+          <!-- Message -->
+          <div class="space-y-3">
+            <label class="block text-sm font-semibold text-gray-200 mb-3">Why do you want to join us?</label>
+            <textarea name="message" rows="4" class="w-full px-6 py-4 bg-white/5 border border-white/10 rounded-xl text-white placeholder-gray-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 outline-none transition-all duration-300 input-glow resize-none" placeholder="Tell us about your passion for education, your goals, and what you can bring to our team..."></textarea>
+          </div>
+
+          <!-- Submit Button -->
+          <div class="text-center pt-6">
+            <button type="submit" class="group relative w-full md:w-auto px-12 py-4 submit-btn text-white font-bold text-lg rounded-2xl shadow-2xl hover-lift transition-all duration-300 hover:scale-105 overflow-hidden">
+              <span class="relative z-10 flex items-center justify-center gap-3">
+                Submit Application
+                <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="mt-16 text-center">
+          <div class="glass rounded-3xl p-8 max-w-2xl mx-auto hover-lift">
+            <h3 class="text-xl font-semibold text-white mb-4">Alternative Contact</h3>
+            <p class="text-gray-300 mb-4">
+              Prefer to send your CV directly? We'd love to hear from you.
+            </p>
+            <a href="mailto:noreplybitlearning@gmail.com" class="inline-flex items-center gap-2 text-purple-300 font-semibold hover:text-purple-200 transition-colors">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              noreplybitlearning@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault();
+        
+        // success notification
+        const button = event.target.querySelector('button[type="submit"]');
+        const originalText = button.innerHTML;
+        
+        // Animate button
+        button.innerHTML = '<span class="flex items-center justify-center gap-2"><svg class="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Submitting...</span>';
+        button.disabled = true;
+        
+        setTimeout(() => {
+          alert("🎉 Thank you for your application! Our team will contact you as soon as possible.");
+          button.innerHTML = originalText;
+          button.disabled = false;
+          event.target.submit(); // continue form submit to Netlify
+        }, 1500);
+      }
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+              target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+              });
+            }
+          });
+        });
+
+        // focus effects to form inputs
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+          input.addEventListener('focus', function() {
+            this.parentElement.classList.add('scale-105');
+          });
+          
+          input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('scale-105');
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
